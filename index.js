@@ -2,7 +2,8 @@
 
 const express = require('express');
 const path = require('path');
-const gameRoutes = require('./routes/gameRoutes'); // Import game routes
+const gameRoutes = require('./routes/gameRoutes');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
@@ -25,8 +26,11 @@ app.get('/game/:id', (req, res) => {
 // Use the modular routes for all game-related endpoints
 app.use('/games', gameRoutes);
 
+// Use centralized error handler
+app.use(errorHandler);
+
 // Start server
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
