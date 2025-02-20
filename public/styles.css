@@ -1,23 +1,62 @@
-/* Base styling, feel free to remove or alter */
+/*  Description: 
+    Author: Nicole Sparkes
+    Date:  */
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 0%;}
+    100% { background-position: 100% 100%;}
+}
 
 body {
-    background: linear-gradient(90deg, rgba(93,142,251,1) 0%, rgba(93,142,251,1) 50%, rgba(0,212,255,1) 100%);
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: backgroundMove 20s linear infinite;
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    box-shadow: 0 0 10px rgba(0px, 0px, 10px, #00ffff);
+    transition: all 0.3s ease 0s;
+    border-radius: 5px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px #ff00ff;
+}
+
+.game-card {
+    perspective: 1000px;
+}
+
+.game-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.game-card-inner:hover .game-card-inner{
+    transform: rotateY(180deg);
+}
+
+.game-card-front, .game-card-back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+.game-card-back {
+    transform: rotateY(180deg);
+}
+
+.xp-bar {
+    height: 20px;
+    width: 100%;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.xp-progress {
     height: 100%;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #F6F6F6;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    transition: width 1s ease-in-out;
 }
-
-.main-content {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
-}
-
-.main-content h1 {
-    font-size: 50px;
-}
+  
