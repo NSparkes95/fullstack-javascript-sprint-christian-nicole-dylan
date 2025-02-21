@@ -74,7 +74,7 @@ nav ul li a:hover::after {
 h1 {
     font-size: 60px;
     text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #00ffcc;
-    margin-bottom: 20px;
+    margin: 100px;
 }
 
 .main-content {
