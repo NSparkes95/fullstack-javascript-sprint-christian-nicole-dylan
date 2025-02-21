@@ -1,12 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="/public/styles.css">
     <head>
         <title>Video Game Gallery</title>
         <link rel="stylesheet" type="text/css" href="./styles.css">
     </head>
+
     <body>
+        <%- include('partials/header') %> <!-- Include header -->
         <main class="main-content">
-            <h1>Video Game Gallery</h1>
+            <%- body %> <!-- This renders the dynamic content -->
         </main>
+
+        <%- include('partials/footer') %> <!-- Include footer -->
     </body>
+
 </html>
