@@ -7,14 +7,13 @@ const port = process.env.PORT || 3000;
 const gameRoutes = require('./routes/gameRoutes');
 const errorHandler = require('./middleware/errorHandler');
 
-
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '/views'));
 app.use(express.static('public'));
 
 // Home route
-app.get('/', (req, res) => {
-    res.render('home'); // Make sure home.ejs exists in /views
+app.get("/", (req, res) => {
+    res.render("home");  // Ensure this is rendering home.ejs
 });
 
 // Game Details Route - Display game details for a given ID
