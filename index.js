@@ -4,8 +4,13 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 3000;
+
 const gameRoutes = require('./routes/gameRoutes');
 const errorHandler = require('./middleware/errorHandler');
+
+// Import games and helper functions
+const { games, VideoGames } = require("./utils/data"); // ✅ Import games from data.js
+const { getGameDetailsById } = require("./utils/gameUtils"); // ✅ Import helper functions
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -18,7 +23,10 @@ app.get('/', (req, res) => {
 
 // Top Rated Route
 app.get('/top-rated', (req, res) => {
-    res.render('top-rated');
+    const topRatedGames = VideoGames
+        .sort((a, b) => b.averageRating - a.averageRating)
+        .slice(0, 16); // ✅ Get top 16 games
+    res.render('top-rated', { games: topRatedGames });
 });
 
 // Game Details Route
@@ -37,9 +45,15 @@ app.get('/random-game', (req, res) => {
 });
 
 // Game Details Route - Display game details for a given ID
-app.get('/game/:id', (req, res) => {
-    const gameId = req.params.id;
-    res.render('index', { gameId }); // Pass gameId to the template
+app.get('/game-details/:id', (req, res) => {
+    const gameId = parseInt(req.params.id);
+    const game = getGameDetailsById(gameId); // ✅ Fetch game details
+
+    if (!game) {
+        return res.status(404).send('Game not found');
+    }
+
+    res.render('game-details', { game });
 });
 
 // Use the modular routes for all game-related endpoints

@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Rated</title>
+    <title><%= game.title %> Details</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
-    <h1>Game Details</h1>
+
+    <h1>Gamepedia</h1>
     <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+    <div class="game-details-container">
+        <h1><%= game.title %> (<%= game.year %>)</h1>
+        <img src="<%= game.img %>" 
+             onerror="this.onerror=null; this.src='/images/fallback.jpg';" 
+             alt="<%= game.title %>" 
+             width="300">
+        <p><strong>⭐ Rating:</strong> <%= game.rating %>/10</p>
+        <p><strong>Description:</strong> <%= game.description %></p>
+        <a href="/top-rated" class="back-button">← Back to Top Rated</a>
+    </div>
 
 </body>
 </html>
