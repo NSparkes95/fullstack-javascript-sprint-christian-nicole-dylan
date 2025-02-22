@@ -116,3 +116,77 @@ h1 {
     50% { width: 100%; }
     100% { width: 0%; }
 }
+
+.top-rated-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Space between game boxes */
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.game-box {
+    background-color: #111; /* Dark theme */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00ffcc;
+    text-align: center;
+    width: 90%;
+    max-width: 500px; /* Limits the size of each game box */
+}
+
+.game-box img {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.game-box h2, .game-box p {
+    color: #00ffcc;
+}
+
+.game-details-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: #00ffcc; /* Neon green text */
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.8); /* Neon glow */
+}
+
+.game-details-container h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0px 0px 8px #00ffcc; /* Glow effect */
+}
+
+.game-details-container img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.8); /* Glow */
+}
+
+.game-details-container p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #00ffcc;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background: #009988;
+    box-shadow: 0px 0px 15px rgba(0, 255, 204, 1);
+}
