@@ -21,6 +21,16 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.get('/search', (req, res) => {
+    const query = req.query.query.toLowerCase(); // Get search query
+    const searchResults = VideoGames.filter(game => 
+        game.title.toLowerCase().includes(query) ||  // Match title
+        game.description.toLowerCase().includes(query) // Match description
+    );
+
+    res.render('search-results', { searchResults, query });
+});
+
 // Top Rated Route
 app.get('/top-rated', (req, res) => {
     const topRatedGames = VideoGames
@@ -42,6 +52,20 @@ app.get('/hidden-gems', (req, res) => {
 // Random Game Route
 app.get('/random-game', (req, res) => {
     res.render('random-game');
+});
+
+// Search Route
+app.get('/search', (req, res) => {
+    const query = req.query.query ? req.query.query.toLowerCase() : ''; // Get search query
+    let searchResults = [];
+
+    if (query) {
+        searchResults = VideoGames.filter(game => 
+            game.title.toLowerCase().includes(query) ||  // Match title
+            game.description.toLowerCase().includes(query) // Match description
+        );
+    }
+    res.render('search-results', { games: searchResults || [], query });
 });
 
 // Game Details Route - Display game details for a given ID
