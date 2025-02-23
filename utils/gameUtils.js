@@ -1,3 +1,7 @@
+// Description: This file contains utility functions for working with video game data.
+// Author: Nicole Sparkes
+// Date: 02/24/2025
+
 const { VideoGames, Genres } = require("./data");
 
 const games = [
@@ -169,11 +173,48 @@ function selectRandomGameId() {
 }
 
 /**
+ * Shuffle an array
+ * @param {Array} array - The array to shuffle
+ * @returns {Array} - The shuffled array
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+/**
  * Get "Hidden Gems" - games that are highly rated but not widely reviewed
  * @returns {Array} - An array of hidden gem games
  */
 function getHiddenGems() {
-    return games.filter(game => game.rating >= 8.5 && game.rating <= 9.0);
+    console.log("🔍 Checking Hidden Gems...");
+
+    if (!VideoGames || !Array.isArray(VideoGames)) {
+        console.error("❌ Error: VideoGames is not an array or is undefined!");
+        return [];
+    }
+
+    // Shuffle the games array to get a random selection
+    const shuffledGames = shuffleArray([...VideoGames]);
+    console.log("🎲 Shuffled Games:", shuffledGames); // 🎲 Log shuffled games to check output
+
+    const hiddenGems = shuffledGames // 📝 Filter games by rating and number of reviews
+        .filter(game => game.averageRating >= 9.0 && game.numberOfReviews < 1000) // 🎮 Filter games by rating and number of reviews
+        .map(game => ({
+                id: game.id|| Math.random(),  // 🆔 Generate a random ID if missing
+                title: game.title,
+                year: game.releaseYear,
+                rating: game.averageRating, 
+                reviews: game.numberOfReviews,
+                description: game.description, 
+                img: game.img
+        }));
+    console.log("📜 Hidden Gems Found:", hiddenGems.length > 0 ? hiddenGems : "None found! Check filter conditions."); // ✅ Log results to check output
+
+    return hiddenGems;
 }
 
 // Export the functions to be used in other modules

@@ -18,41 +18,97 @@ const Genres = {
 };
 
 const VideoGames = [
-    { title: "The Legend of Zelda: Breath of the Wild", description: "An open-world action-adventure game set in Hyrule.", developer: "Nintendo", releaseYear: 2017, genre: Genres.ADVENTURE, averageRating: 9.8, numberOfReviews: 12000, released: true },
-    { title: "The Witcher 3: Wild Hunt", description: "A sprawling RPG filled with monsters, magic, and rich storytelling.", developer: "CD Projekt Red", releaseYear: 2015, genre: Genres.RPG, averageRating: 9.7, numberOfReviews: 15000, released: true },
-    { title: "Half-Life 2", description: "A groundbreaking first-person shooter with physics-based gameplay.", developer: "Valve", releaseYear: 2004, genre: Genres.FPS, averageRating: 9.6, numberOfReviews: 10000, released: true },
-    { title: "Dark Souls III", description: "A brutally challenging RPG with rich lore and deep combat.", developer: "FromSoftware", releaseYear: 2016, genre: Genres.RPG, averageRating: 9.4, numberOfReviews: 8500, released: true },
-    { title: "Minecraft", description: "A sandbox game where you can build and explore infinite worlds.", developer: "Mojang", releaseYear: 2011, genre: Genres.SIMULATION, averageRating: 9.5, numberOfReviews: 20000, released: true },
-    { title: "Celeste", description: "A heartfelt platformer about climbing a mountain while overcoming personal struggles.", developer: "Maddy Makes Games", releaseYear: 2018, genre: Genres.ADVENTURE, averageRating: 9.5, numberOfReviews: 800, released: true },
-    { title: "Hollow Knight", description: "A hand-drawn Metroidvania with deep exploration and tight combat.", developer: "Team Cherry", releaseYear: 2017, genre: Genres.ADVENTURE, averageRating: 9.5, numberOfReviews: 7500, released: true },
-    { title: "Katana ZERO", description: "A stylish neo-noir action-platformer with fast-paced combat.", developer: "Askiisoft", releaseYear: 2019, genre: Genres.ACTION, averageRating: 9.0, numberOfReviews: 600, released: true },
-    { title: "Outer Wilds", description: "A mystery exploration game set in a solar system trapped in a time loop.", developer: "Mobius Digital", releaseYear: 2019, genre: Genres.ADVENTURE, averageRating: 9.3, numberOfReviews: 900, released: true },
-    { title: "Disco Elysium", description: "A narrative-driven RPG where you play as a detective with unique skill-based dialogue.", developer: "ZA/UM", releaseYear: 2019, genre: Genres.RPG, averageRating: 9.6, numberOfReviews: 950, released: true },
-    { title: "Starfield", description: "A space exploration RPG from the creators of Fallout and Skyrim.", developer: "Bethesda Game Studios", releaseYear: 2023, genre: Genres.RPG, averageRating: null, numberOfReviews: 0, released: false },
-    { title: "Metroid Prime 4", description: "The next installment in the Metroid Prime series.", developer: "Nintendo", releaseYear: 2025, genre: Genres.ACTION, averageRating: null, numberOfReviews: 0, released: false },
-    { title: "Hollow Knight: Silksong", description: "A sequel to the acclaimed indie Metroidvania, Hollow Knight.", developer: "Team Cherry", releaseYear: 2024, genre: Genres.ADVENTURE, averageRating: null, numberOfReviews: 0, released: false },
-    { title: "Grand Theft Auto VI", description: "The next major entry in the Grand Theft Auto series.", developer: "Rockstar Games", releaseYear: 2025, genre: Genres.ACTION, averageRating: null, numberOfReviews: 0, released: false },
-    { title: "Red Dead Redemption 2", description: "An open-world western action-adventure game.", developer: "Rockstar Games", releaseYear: 2018, genre: Genres.ACTION, averageRating: 9.7, numberOfReviews: 14000, released: true },
-    { title: "DOOM Eternal", description: "A fast-paced first-person shooter that rewards aggressive gameplay.", developer: "id Software", releaseYear: 2020, genre: Genres.FPS, averageRating: 9.2, numberOfReviews: 5000, released: true },
-    { title: "Sid Meier's Civilization VI", description: "A turn-based strategy game where you build and expand an empire.", developer: "Firaxis Games", releaseYear: 2016, genre: Genres.STRATEGY, averageRating: 9.0, numberOfReviews: 4000, released: true },
-    { title: "Bloodborne", description: "A gothic horror action RPG with intense combat and a rich world.", developer: "FromSoftware", releaseYear: 2015, genre: Genres.RPG, averageRating: 9.6, numberOfReviews: 9000, released: true },
-    { title: "Super Mario Odyssey", description: "A globe-trotting 3D platformer featuring Mario and his hat companion, Cappy.", developer: "Nintendo", releaseYear: 2017, genre: Genres.ADVENTURE, averageRating: 9.7, numberOfReviews: 11000, released: true },
-    { title: "Cyberpunk 2077", description: "A futuristic RPG set in a cyberpunk city with branching stories.", developer: "CD Projekt Red", releaseYear: 2020, genre: Genres.RPG, averageRating: 8.9, numberOfReviews: 6000, released: true },
-    { title: "God of War (2018)", description: "A third-person action-adventure featuring Kratos and his son, Atreus.", developer: "Santa Monica Studio", releaseYear: 2018, genre: Genres.ACTION, averageRating: 9.8, numberOfReviews: 12000, released: true },
-    { title: "The Elder Scrolls V: Skyrim", description: "A vast open-world RPG filled with quests, dragons, and adventure.", developer: "Bethesda Game Studios", releaseYear: 2011, genre: Genres.RPG, averageRating: 9.6, numberOfReviews: 16000, released: true },
-    { title: "Persona 5 Royal", description: "A stylish turn-based RPG about high school students fighting injustice.", developer: "Atlus", releaseYear: 2020, genre: Genres.RPG, averageRating: 9.7, numberOfReviews: 8000, released: true },
-    { title: "FIFA 23", description: "The latest iteration of the FIFA soccer series.", developer: "EA Sports", releaseYear: 2022, genre: Genres.SPORTS, averageRating: 8.1, numberOfReviews: 3000, released: true },
-    { title: "Forza Horizon 5", description: "An open-world racing game set in Mexico.", developer: "Playground Games", releaseYear: 2021, genre: Genres.RACING, averageRating: 9.4, numberOfReviews: 5000, released: true },
-    { title: "Resident Evil 4 (Remake)", description: "A modern reimagining of the classic survival horror game.", developer: "Capcom", releaseYear: 2023, genre: Genres.HORROR, averageRating: 9.5, numberOfReviews: 7000, released: true },
-    { title: "The Forgotten City", description: "A time-loop mystery adventure set in an ancient Roman city.", developer: "Modern Storyteller", releaseYear: 2021, genre: Genres.ADVENTURE, averageRating: 9.0, numberOfReviews: 700, released: true },
-    { title: "Return of the Obra Dinn", description: "A detective puzzle game where you solve the fate of a lost ship's crew.", developer: "Lucas Pope", releaseYear: 2018, genre: Genres.PUZZLE, averageRating: 9.2, numberOfReviews: 500, released: true },
-    { title: "Slay the Spire", description: "A deck-building rogue-like where you fight through floors of enemies using strategic card combos.", developer: "MegaCrit", releaseYear: 2019, genre: Genres.STRATEGY, averageRating: 9.1, numberOfReviews: 850, released: true },
-    { title: "Inscryption", description: "A unique blend of deck-building, escape room puzzles, and psychological horror.", developer: "Daniel Mullins Games", releaseYear: 2021, genre: Genres.PUZZLE, averageRating: 9.3, numberOfReviews: 950, released: true },
-    { title: "Loop Hero", description: "A rogue-like where you shape the world around a looping hero's journey.", developer: "Four Quarters", releaseYear: 2021, genre: Genres.STRATEGY, averageRating: 9.0, numberOfReviews: 700, released: true },
-    { title: "A Short Hike", description: "A relaxing exploration game where you hike up a mountain at your own pace.", developer: "Adam Robinson-Yu", releaseYear: 2019, genre: Genres.ADVENTURE, averageRating: 9.4, numberOfReviews: 500, released: true },
-    { title: "Into the Breach", description: "A turn-based strategy game where you control mechs defending against alien threats.", developer: "Subset Games", releaseYear: 2018, genre: Genres.STRATEGY, averageRating: 9.3, numberOfReviews: 650, released: true },
-    { title: "Bug Fables: The Everlasting Sapling", description: "A charming RPG inspired by classic Paper Mario games.", developer: "Moonsprout Games", releaseYear: 2019, genre: Genres.RPG, averageRating: 9.0, numberOfReviews: 750, released: true },
-    { title: "Eastward", description: "A pixel-art adventure RPG featuring a world filled with puzzles and charm.", developer: "Pixpil", releaseYear: 2021, genre: Genres.RPG, averageRating: 9.1, numberOfReviews: 600, released: true },
+    {
+        id: 1,
+        title: "The Legend of Zelda: Breath of the Wild",
+        releaseYear: 2017,
+        averageRating: 9.8,
+        numberOfReviews: 950,
+        description: "An open-world adventure set in Hyrule.",
+        img: "https://upload.wikimedia.org/wikipedia/en/0/02/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
+    },
+    {
+        id: 2,
+        title: "The Witcher 3: Wild Hunt",
+        releaseYear: 2015,
+        averageRating: 9.7,
+        numberOfReviews: 15000,
+        description: "A sprawling RPG filled with monsters, magic, and rich storytelling.",
+        img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"
+    },
+    {
+        id: 3,
+        title: "Half-Life 2",
+        releaseYear: 2004,
+        averageRating: 9.6,
+        numberOfReviews: 10000,
+        description: "A groundbreaking first-person shooter with physics-based gameplay.",
+        img: "https://upload.wikimedia.org/wikipedia/en/2/25/Half-Life_2_cover.jpg"
+    },
+    {
+        id: 4,
+        title: "Dark Souls III",
+        releaseYear: 2016,
+        averageRating: 9.4,
+        numberOfReviews: 8500,
+        description: "A brutally challenging RPG with rich lore and deep combat.",
+        img: "https://upload.wikimedia.org/wikipedia/en/1/16/Dark_Souls_III_cover_art.jpg"
+    },
+    {
+        id: 5,
+        title: "Minecraft",
+        releaseYear: 2011,
+        averageRating: 9.5,
+        numberOfReviews: 20000,
+        description: "A sandbox game where you can build and explore infinite worlds.",
+        img: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+    },
+    {
+        id: 6,
+        title: "Celeste",
+        releaseYear: 2018,
+        averageRating: 9.5,
+        numberOfReviews: 800,
+        description: "A heartfelt platformer about climbing a mountain while overcoming personal struggles.",
+        img: "https://upload.wikimedia.org/wikipedia/en/6/69/Celeste_box_art_final.png"
+    },
+    {
+        id: 7,
+        title: "Hollow Knight",
+        releaseYear: 2017,
+        averageRating: 9.5,
+        numberOfReviews: 7500,
+        description: "A hand-drawn Metroidvania with deep exploration and tight combat.",
+        img: "https://upload.wikimedia.org/wikipedia/en/1/11/Hollow_Knight_first_cover_art.jpg"
+    },
+    {
+        id: 8,
+        title: "Katana ZERO",
+        releaseYear: 2019,
+        averageRating: 9.0,
+        numberOfReviews: 600,
+        description: "A stylish neo-noir action-platformer with fast-paced combat.",
+        img: "https://upload.wikimedia.org/wikipedia/en/2/2b/Katana_Zero_cover_art.jpg"
+    },
+    {
+        id: 9,
+        title: "Outer Wilds",
+        releaseYear: 2019,
+        averageRating: 9.3,
+        numberOfReviews: 900,
+        description: "A mystery exploration game set in a solar system trapped in a time loop.",
+        img: "https://upload.wikimedia.org/wikipedia/en/4/4a/Outer_Wilds_cover_art.jpg"
+    },
+    {
+        id: 10,
+        title: "Disco Elysium",
+        releaseYear: 2019,
+        averageRating: 9.6,
+        numberOfReviews: 950,
+        description: "A narrative-driven RPG where you play as a detective with unique skill-based dialogue.",
+        img: "https://upload.wikimedia.org/wikipedia/en/8/8b/Disco_Elysium_cover_art.jpg"
+    }
+    // ... other games
 ];
 
-module.exports = { Genres, VideoGames };
+module.exports = { VideoGames };
