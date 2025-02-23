@@ -6,6 +6,16 @@
 
 <%- include('partials/header') %>
 
+
+<div class="search-container">
+    <form action="/search" method="GET">
+        <input type="text" name="query" placeholder="Search for a game..." required>
+        <button type="submit">
+            <i class="fas fa-search"></i> Search
+        </button>
+    </form>
+</div>
+
 <p>Browse top-rated games, discover hidden gems, and more!</p>
 
 <%- include('partials/footer') %>

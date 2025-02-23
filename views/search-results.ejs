@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Rated</title>
+</head>
+
+<body>
+    <div class="xp-bar">
+        <div class="xp-bar-fill"></div>
+    </div>
+
+    <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+
+    <% if (games.length > 0) { %>
+        <% games.forEach(game => { %>
+            <div class="game-results-container">
+                <h2><%= game.title %> (<%= game.year %>)</h2>
+                <img src="<%= game.img %>" 
+                     onerror="this.onerror=null; this.src='/images/fallback.jpg';" 
+                     alt="<%= game.title %>" 
+                     width="250">
+                <p><strong>⭐ Rating:</strong> <%= game.averageRating %>/10</p>
+                <p><strong>Description:</strong> <%= game.description %></p>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No games found. Try searching for something else.</p>
+    <% } %>
+
+    <a href="/search" class="back-button">← Back to Search</a>
+</body>
+</html>
+
