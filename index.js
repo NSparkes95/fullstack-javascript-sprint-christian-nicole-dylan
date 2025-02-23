@@ -10,7 +10,8 @@ const errorHandler = require('./middleware/errorHandler');
 
 // Import games and helper functions
 const { games, VideoGames } = require("./utils/data"); // ✅ Import games from data.js
-const { getGameDetailsById } = require("./utils/gameUtils"); // ✅ Import helper functions
+const { getGameDetailsById, getHiddenGems } = require("./utils/gameUtils"); // ✅ Import helper functions
+const { get } = require('http');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -18,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('index');
 });
 
 app.get('/search', (req, res) => {
@@ -46,7 +47,9 @@ app.get('/game-details', (req, res) => {
 
 // Hidden Gems Route
 app.get('/hidden-gems', (req, res) => {
-    res.render('hidden-gems');
+    const hiddenGems = getHiddenGems(); // ✅ Get hidden gems
+    console.log("Forgotten Treasures:", hiddenGems);
+    res.render('hidden-gems', { games: hiddenGems });
 });
 
 // Random Game Route
@@ -88,7 +91,6 @@ app.use(errorHandler);
 
 // Start server
 
-const PORT = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server is running on port ${port}`);
 });

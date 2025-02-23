@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Rated</title>
+    <title>Hidden Gems</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- ✅ Ensure CSS is linked -->
 </head>
 <body>
 
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
-    <h1>Forgotten Treasures</h1>
-    <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+
+    <div class="hidden-gems">
+        <h1>Forgotten Treasures</h1>
+        <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+        <div class="hidden-gems-container">
+            <% games.forEach(game => { %>
+                <div class="game-box">
+                    <a href="/game-details/<%= game.id %>">
+                        <img src="<%= game.img %>" alt="<%= game.title %>" width="250">
+                        <h2><%= game.title %> (<%= game.year %>)</h2>
+                        <p>⭐ <%= game.rating %>/10</p>
+                        <p><%= game.description %></p>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    
+    <%- include('partials/footer') %>
 
 </body>
 </html>
