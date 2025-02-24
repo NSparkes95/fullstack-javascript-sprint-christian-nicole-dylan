@@ -8,13 +8,15 @@
 </head>
 <body>
 
+    <!-- ✅ Navbar Included at the top -->
+    <%- include('partials/header') %>  
+
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
 n
     <div class="hidden-gems">
         <h1>Forgotten Treasures</h1>
-        <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
         <div class="hidden-gems-container">
             <% games.forEach(game => { %>
                 <div class="game-box">
@@ -28,8 +30,9 @@ n
             <% }); %>
         </div>
     </div>
-    
-    <%- include('partials/footer') %>
+
+    <!-- ✅ Footer Included at the bottom -->
+    <%- include('partials/footer') %> 
 
 </body>
 </html>

@@ -1,12 +1,13 @@
-<!--Description: This file is the view for the random game page. It displays the random game that the user has been assigned. -->
-<!--Author: Nicole Sparkes-->
+<!-- Description: This file is the view for the random game page. It displays the random game that the user has been assigned. -->
+<!-- Author: Nicole Sparkes -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Rated</title>
+    <title>Game of Fate</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- ✅ Link CSS -->
 </head>
 <body>
 
@@ -15,6 +16,22 @@
     </div>
     <h1>Game of Fate</h1>
     <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+
+    <div class="random-game-container">
+        <% if (game) { %>
+            <div class="game-box">
+                <img src="<%= game.img %>" alt="<%= game.title %>" width="300">
+                <h2><%= game.title %> (<%= game.year %>)</h2>
+                <p><strong>⭐ Rating:</strong> <%= game.rating %>/10</p>
+                <p><strong>Description:</strong> <%= game.description %></p>
+                <a href="/" class="back-button">← Back to Start Screen</a>
+            </div>
+        <% } else { %>
+            <p>No game found. Try again later!</p>
+        <% } %>
+    </div>
+
+    <%- include('partials/footer') %> <!-- ✅ Footer Included -->
 
 </body>
 </html>
