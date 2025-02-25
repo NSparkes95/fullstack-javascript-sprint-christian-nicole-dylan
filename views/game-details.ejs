@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <!-- Include Header for Navigation -->
-    <%- include('partials/header') %>  
 
+      <!-- Floating Particles for Sci-Fi Effect -->
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+  
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
 
     <h1>Gamepedia</h1>
+    <%- include('partials/header') %> 
     <div class="game-details-container">
         <h1><%= game.title %> (<%= game.year %>)</h1>
         <img src="<%= game.img %>" 
