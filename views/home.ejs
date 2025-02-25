@@ -8,6 +8,13 @@
 </head>
 <body>
 
+      <!-- Floating Particles for Sci-Fi Effect -->
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+  
     <h1>Welcome to Gameverse Gateway</h1>
     <%- include('partials/header') %> <!-- ✅ Navbar Included -->
 
@@ -15,7 +22,9 @@
         <% games.forEach(game => { %>
             <div class="game-box">
                 <a href="/game-details/<%= game.id %>">
-                    <img src="<%= game.img %>" alt="<%= game.title %>" width="250">
+                    <img src="<%= game.img && game.img.trim() !== '' ? game.img : '/images/fallback.jpg' %>" 
+                            onerror="this.onerror=null; this.src='/images/fallback.jpg';"
+                            alt="<%= game.title %>" width="250">
                     <h2><%= game.title %> (<%= game.year %>)</h2>
                     <p>⭐ <%= game.rating %>/10</p>
                     <p><%= game.description %></p>

@@ -45,11 +45,13 @@ function getGameDetailsById(id) {
  * @param {number} x - Number of random games to select
  * @returns {Array} - An array of randomly selected games
  */
-function selectRandomGames(x) {
-    // ✅ Shuffle the array and return the first `x` games
-    const shuffled = [...VideoGames].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, x);
-}
+const selectRandomGames = (count) => {
+    if (!VideoGames || VideoGames.length === 0) return [];
+    
+    // ✅ Fisher-Yates shuffle for randomness
+    const shuffled = [...VideoGames].sort(() => 0.5 - Math.random());  
+    return shuffled.slice(0, count);  // ✅ Pick first `count` random games
+};
 
 /**
  * Shuffle an array (Helper Function)

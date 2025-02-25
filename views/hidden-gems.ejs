@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="/styles.css"> <!-- ✅ Ensure CSS is linked -->
 </head>
 <body>
-
-    <!-- ✅ Navbar Included at the top -->
-    <%- include('partials/header') %>  
+      <!-- Floating Particles for Sci-Fi Effect -->
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+  
 
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
@@ -17,6 +21,7 @@
 n
     <div class="hidden-gems">
         <h1>Forgotten Treasures</h1>
+        <%- include('partials/header') %> 
         <div class="hidden-gems-container">
             <% games.forEach(game => { %>
                 <div class="game-box">

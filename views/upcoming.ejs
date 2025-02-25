@@ -10,15 +10,20 @@
     <link rel="stylesheet" href="/styles.css"> <!-- ✅ Ensure CSS is linked -->
 </head>
 <body>
-
+      <!-- Floating Particles for Sci-Fi Effect -->
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+  
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
 
-    <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
-
     <div class="upcoming-container">
         <h1>Most Anticipated Games</h1>
+        <%- include('partials/header') %>
         
         <% if (upcomingGames && upcomingGames.length > 0) { %>
             <% upcomingGames.forEach(game => { %>

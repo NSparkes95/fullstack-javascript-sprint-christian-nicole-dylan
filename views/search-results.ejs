@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
+      <!-- Floating Particles for Sci-Fi Effect -->
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+  
     <!-- Experience Bar -->
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
 
-    <!-- Navbar (Includes Search Bar) -->
-    <%- include('partials/header') %>  
 
     <div class="search-results-container">
         <h1>Search Results for "<%= query %>"</h1>
-
+        <%- include('partials/header') %> 
         <!-- Search Bar -->
         <form action="/search" method="GET">
             <input type="text" name="query" value="<%= query %>" placeholder="Search for a game..." required>
