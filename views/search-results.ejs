@@ -3,33 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Rated</title>
+    <title>Search Results for "<%= query %>"</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
+
+    <!-- Experience Bar -->
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
 
-    <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+    <!-- Navbar (Includes Search Bar) -->
+    <%- include('partials/header') %>  
 
-    <% if (games.length > 0) { %>
-        <% games.forEach(game => { %>
-            <div class="game-results-container">
-                <h2><%= game.title %> (<%= game.year %>)</h2>
-                <img src="<%= game.img %>" 
-                     onerror="this.onerror=null; this.src='/images/fallback.jpg';" 
-                     alt="<%= game.title %>" 
-                     width="250">
-                <p><strong>⭐ Rating:</strong> <%= game.averageRating %>/10</p>
-                <p><strong>Description:</strong> <%= game.description %></p>
-            </div>
-        <% }) %>
-    <% } else { %>
-        <p>No games found. Try searching for something else.</p>
-    <% } %>
+    <div class="search-results-container">
+        <h1>Search Results for "<%= query %>"</h1>
 
-    <a href="/search" class="back-button">← Back to Search</a>
+        <!-- Search Bar -->
+        <form action="/search" method="GET">
+            <input type="text" name="query" value="<%= query %>" placeholder="Search for a game..." required>
+            <button type="submit">🔍 Search</button>
+        </form>
+
+        <!-- Search Results -->
+        <% if (games.length > 0) { %>
+            <ul class="search-results-list">
+                <% games.forEach(game => { %>
+                    <li>
+                        <a href="/game-details/<%= game.id %>">
+                            <img src="<%= game.img %>" alt="<%= game.title %>" width="150">
+                            <div class="game-info">
+                                <h2><%= game.title %> (<%= game.releaseYear %>)</h2>
+                                <p>⭐ <%= game.averageRating %>/10</p>
+                                <p><%= game.description %></p>
+                            </div>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No games found for "<%= query %>". Try a different search.</p>
+        <% } %>
+    </div>
+
+    <a href="/" class="back-button">← Back to Home</a>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %> 
 </body>
 </html>
-

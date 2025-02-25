@@ -2,254 +2,211 @@
     Author: Nicole Sparkes
     Date*/
 
-@keyframes backgroundMove {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
-}
-
-body {
-    background-color: black;
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #00ffcc;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @keyframes backgroundMove {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 100% 100%; }
+    }
+    
+    body {
+        background-color: black;
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Lato', sans-serif;
+        display: flex;
+        color: #00ffcc;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* 🔹 NAVIGATION */
+    nav {
+        border-bottom: 2px solid #00ffcc;
+        padding: 10px;
+        box-shadow: 0px 0px 10px #00ffcc;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    nav ul li {
+        display: inline;
+    }
+    
+    nav ul li a {
+        color: #00ffcc;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 15px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+    }
+    
+    nav ul li a:hover {
+        text-shadow: 0px 0px 10px #00ffcc;
+    }
+    
+    nav ul li a::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        width: 0%;
+        height: 3px;
+        background: #00ffcc;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    nav ul li a:hover::after {
+        width: 100%;
+        left: 0%;
+    }
+    
+    /* 🔹 HEADINGS */
+    h1 {
+        font-size: 60px;
+        text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #00ffcc;
+        margin: 100px;
+    }
+    
+    .main-content {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    
+    /* 🔹 XP BAR */
+    .xp-bar {
+        height: 12px;
+        width: 80%;
+        background: #111;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px #00ffcc;
+    }
+    
+    .xp-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: repeating-linear-gradient(
+            90deg,
+            #00ffcc 0px,
+            #00ffcc 10px,
+            transparent 10px,
+            transparent 20px
+        );
+        animation: pixelLoad 10s infinite ease-in-out;
+    }
+    
+    @keyframes pixelLoad {
+        0% { width: 0%; }
+        50% { width: 100%; }
+        100% { width: 0%; }
+    }
+    
+    /* 🔹 TOP-RATED & HIDDEN GEMS GRID */
+    .top-rated-container, .hidden-gems-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+        gap: 20px;
+        justify-items: center;
+        margin-top: 20px;
+    }
+    
+    /* 🔥 GAME BOX (For both Top Rated & Hidden Gems) */
+    .game-box {
+        background-color: #111;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #00ffcc;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .game-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 20px #00ffcc;
+    }
+    
+    .game-box img {
+        border-radius: 8px;
+        max-width: 100%;
+    }
+    
+    .game-box h2, .game-box p {
+        color: #00ffcc;
+    }
+    
+    /* 🔥 FORGOTTEN TREASURES (MYSTERY REVEAL) */
+    .hidden-gem-card {
+        position: relative;
+        width: 90%;
+        max-width: 600px;
+        background: rgba(0, 0, 0, 0.8);
+        border: 2px solid #00ffcc;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px auto;
+        text-align: center;
+        box-shadow: 0px 0px 10px #00ffcc;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        filter: blur(3px); /* 🔹 Starts blurred */
+    }
+    
+/* 🔹 SEARCH BAR STYLING */
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 30px;  /* ✅ Added more space below the search bar */
     text-align: center;
 }
 
-/* 🔹 NAVIGATION */
-nav {
-    border-bottom: 2px solid #00ffcc;
+.search-container input[type="text"] {
+    width: 60%;
+    max-width: 400px;
     padding: 10px;
-    box-shadow: 0px 0px 10px #00ffcc;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    color: #00ffcc;
-    font-size: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-}
-
-nav ul li a:hover {
-    text-shadow: 0px 0px 10px #00ffcc;
-}
-
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    width: 0%;
-    height: 3px;
-    background: #00ffcc;
-    transition: all 0.3s ease-in-out;
-}
-
-nav ul li a:hover::after {
-    width: 100%;
-    left: 0%;
-}
-
-/* 🔹 HEADINGS */
-h1 {
-    font-size: 60px;
-    text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #00ffcc;
-    margin: 100px;
-}
-
-.main-content {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-}
-
-/* 🔹 XP BAR */
-.xp-bar {
-    height: 12px;
-    width: 80%;
+    border: 2px solid #00ffcc;
+    border-radius: 20px;
     background: #111;
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0px 0px 15px #00ffcc;
-}
-
-.xp-bar-fill {
-    height: 100%;
-    width: 0%;
-    background: repeating-linear-gradient(
-        90deg,
-        #00ffcc 0px,
-        #00ffcc 10px,
-        transparent 10px,
-        transparent 20px
-    );
-    animation: pixelLoad 10s infinite ease-in-out;
-}
-
-@keyframes pixelLoad {
-    0% { width: 0%; }
-    50% { width: 100%; }
-    100% { width: 0%; }
-}
-
-/* 🔹 TOP-RATED & HIDDEN GEMS GRID */
-.top-rated-container, .hidden-gems-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-    gap: 20px;
-    justify-items: center;
-    margin-top: 20px;
-}
-
-/* 🔥 GAME BOX (For both Top Rated & Hidden Gems) */
-.game-box {
-    background-color: #111;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #00ffcc;
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.game-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 20px #00ffcc;
-}
-
-.game-box img {
-    border-radius: 8px;
-    max-width: 100%;
-}
-
-.game-box h2, .game-box p {
     color: #00ffcc;
-}
-
-/* 🔥 FORGOTTEN TREASURES (MYSTERY REVEAL) */
-.hidden-gem-card {
-    position: relative;
-    width: 90%;
-    max-width: 600px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #00ffcc;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px auto;
-    text-align: center;
-    box-shadow: 0px 0px 10px #00ffcc;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    filter: blur(3px); /* 🔹 Starts blurred */
-}
-
-/* 🔹 Reveal on Hover */
-.hidden-gem-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 20px #00ffcc;
-    filter: blur(0px);
-}
-
-/* 🎮 Game Image */
-.hidden-gem-card img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* 🔹 Brightens & slightly enlarges image on hover */
-.hidden-gem-card:hover img {
-    opacity: 1;
-    transform: scale(1.03);
-}
-
-/* 💡 Glitchy Game Title */
-.hidden-gem-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #00ffcc;
-    text-shadow: 0px 0px 10px #00ffcc;
-    animation: glitchText 1.5s infinite alternate;
-}
-
-/* ⭐ Game Rating */
-.hidden-gem-rating {
-    font-size: 1rem;
-    color: #ffcc00;
-}
-
-/* 📜 Description Text */
-.hidden-gem-desc {
-    font-size: 0.9rem;
-    color: #bbb;
-    margin-top: 8px;
-}
-
-/* 🎭 Text Glitch Effect */
-@keyframes glitchText {
-    0% { text-shadow: 2px 2px #00ffcc; }
-    50% { text-shadow: -2px -2px #0099ff; }
-    100% { text-shadow: 2px -2px #00ffcc; }
-}
-
-/* 🔹 SEARCH */
-.search-container input {
-    margin-top: 20px;
-    border: 2px solid #00ffcc;
-    background-color: black;
-    color: white;
-    padding: 8px;
-    border-radius: 8px;
+    font-size: 18px;
     outline: none;
-    transition: 0.3s;
+    transition: box-shadow 0.3s ease;
 }
 
-.search-container input:focus {
-    box-shadow: 0 0 10px #00ffcc;
+.search-container input[type="text"]:focus {
+    box-shadow: 0px 0px 15px #00ffcc;
 }
 
 .search-container button {
     background-color: #00ffcc;
-    color: black;
+    color: #111;
     border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 8px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
     font-weight: bold;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-container button:hover {
-    box-shadow: 0 0 10px #00ffcc;
+    box-shadow: 0px 0px 10px #00ffcc;
     transform: scale(1.05);
 }

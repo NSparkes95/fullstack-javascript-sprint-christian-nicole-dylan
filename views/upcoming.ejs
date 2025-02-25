@@ -1,20 +1,41 @@
-<!--Description: This file is the view for the upcoming page. It displays the navbar and the title of the page. -->
-<!-- Author: Nicole Sparkes-->
+<!-- Description: This file displays the upcoming games and includes the navbar and footer. -->
+<!-- Author: Nicole Sparkes -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Most Anticipated</title>
+    <title>Most Anticipated Games</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- ✅ Ensure CSS is linked -->
 </head>
 <body>
 
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
-    <h1>Most Anticipated</h1>
+
     <%- include('partials/header') %>  <!-- ✅ Navbar Included -->
+
+    <div class="upcoming-container">
+        <h1>Most Anticipated Games</h1>
+        
+        <% if (upcomingGames && upcomingGames.length > 0) { %>
+            <% upcomingGames.forEach(game => { %>
+                <div class="game-box">
+                    <a href="/game-details/<%= game.id %>">
+                        <img src="<%= game.img %>" alt="<%= game.title %>" width="250">
+                        <h2><%= game.title %> (<%= game.releaseDate %>)</h2>
+                        <p><%= game.description %></p>
+                    </a>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No upcoming games found. Check back later for updates!</p>
+        <% } %>
+    </div>
+
+    <%- include('partials/footer') %>  <!-- ✅ Footer Included -->
 
 </body>
 </html>
