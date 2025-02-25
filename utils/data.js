@@ -25,7 +25,7 @@ const VideoGames = [
         averageRating: 9.8,
         numberOfReviews: 950,
         description: "An open-world adventure set in Hyrule.",
-        img: "https://upload.wikimedia.org/wikipedia/en/0/02/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
+        img: "/images/LegendOfZeldaBOTW.jpg"
     },
     {
         id: 2,
@@ -34,7 +34,7 @@ const VideoGames = [
         averageRating: 9.7,
         numberOfReviews: 15000,
         description: "A sprawling RPG filled with monsters, magic, and rich storytelling.",
-        img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"
+        img: "/images/Witcher3WildHunt.avif"
     },
     {
         id: 3,
@@ -43,7 +43,7 @@ const VideoGames = [
         averageRating: 9.6,
         numberOfReviews: 10000,
         description: "A groundbreaking first-person shooter with physics-based gameplay.",
-        img: "https://upload.wikimedia.org/wikipedia/en/2/25/Half-Life_2_cover.jpg"
+        img: "/images/HalfLife2.jpg"
     },
     {
         id: 4,
@@ -52,7 +52,7 @@ const VideoGames = [
         averageRating: 9.4,
         numberOfReviews: 8500,
         description: "A brutally challenging RPG with rich lore and deep combat.",
-        img: "https://upload.wikimedia.org/wikipedia/en/1/16/Dark_Souls_III_cover_art.jpg"
+        img: "/images/DarkSouls3.jpg"
     },
     {
         id: 5,
@@ -61,7 +61,7 @@ const VideoGames = [
         averageRating: 9.5,
         numberOfReviews: 20000,
         description: "A sandbox game where you can build and explore infinite worlds.",
-        img: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+        img: "/images/Minecraft.jpg"
     },
     {
         id: 6,
@@ -70,7 +70,7 @@ const VideoGames = [
         averageRating: 9.5,
         numberOfReviews: 800,
         description: "A heartfelt platformer about climbing a mountain while overcoming personal struggles.",
-        img: "https://upload.wikimedia.org/wikipedia/en/6/69/Celeste_box_art_final.png"
+        img: "/images/Celeste.png"
     },
     {
         id: 7,
@@ -79,7 +79,7 @@ const VideoGames = [
         averageRating: 9.5,
         numberOfReviews: 7500,
         description: "A hand-drawn Metroidvania with deep exploration and tight combat.",
-        img: "https://upload.wikimedia.org/wikipedia/en/1/11/Hollow_Knight_first_cover_art.jpg"
+        img: "/images/HollowKnight.jpg"
     },
     {
         id: 8,
@@ -88,7 +88,7 @@ const VideoGames = [
         averageRating: 9.0,
         numberOfReviews: 600,
         description: "A stylish neo-noir action-platformer with fast-paced combat.",
-        img: "https://upload.wikimedia.org/wikipedia/en/2/2b/Katana_Zero_cover_art.jpg"
+        img: "/images/KatanaZero.jpg"
     },
     {
         id: 9,
@@ -97,7 +97,7 @@ const VideoGames = [
         averageRating: 9.3,
         numberOfReviews: 900,
         description: "A mystery exploration game set in a solar system trapped in a time loop.",
-        img: "https://upload.wikimedia.org/wikipedia/en/4/4a/Outer_Wilds_cover_art.jpg"
+        img: "/images/OuterWilds.webp"
     },
     {
         id: 10,
@@ -106,7 +106,7 @@ const VideoGames = [
         averageRating: 9.6,
         numberOfReviews: 950,
         description: "A narrative-driven RPG where you play as a detective with unique skill-based dialogue.",
-        img: "https://upload.wikimedia.org/wikipedia/en/8/8b/Disco_Elysium_cover_art.jpg"
+        img: "/images/DiscoElysium.jpg"
     }
     // ... other games
 ];
