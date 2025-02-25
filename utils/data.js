@@ -21,8 +21,8 @@ const VideoGames = [
     {
         id: 1,
         title: "The Legend of Zelda: Breath of the Wild",
-        releaseYear: 2017,
-        averageRating: 9.8,
+        year: 2017,
+        rating: 9.8,
         numberOfReviews: 950,
         description: "An open-world adventure set in Hyrule.",
         img: "/images/LegendOfZeldaBOTW.jpg"
@@ -30,8 +30,8 @@ const VideoGames = [
     {
         id: 2,
         title: "The Witcher 3: Wild Hunt",
-        releaseYear: 2015,
-        averageRating: 9.7,
+        year: 2015,
+        rating: 9.7,
         numberOfReviews: 15000,
         description: "A sprawling RPG filled with monsters, magic, and rich storytelling.",
         img: "/images/Witcher3WildHunt.avif"
@@ -39,8 +39,8 @@ const VideoGames = [
     {
         id: 3,
         title: "Half-Life 2",
-        releaseYear: 2004,
-        averageRating: 9.6,
+        year: 2004,
+        rating: 9.6,
         numberOfReviews: 10000,
         description: "A groundbreaking first-person shooter with physics-based gameplay.",
         img: "/images/HalfLife2.jpg"
@@ -48,8 +48,8 @@ const VideoGames = [
     {
         id: 4,
         title: "Dark Souls III",
-        releaseYear: 2016,
-        averageRating: 9.4,
+        year: 2016,
+        rating: 9.4,
         numberOfReviews: 8500,
         description: "A brutally challenging RPG with rich lore and deep combat.",
         img: "/images/DarkSouls3.jpg"
@@ -57,8 +57,8 @@ const VideoGames = [
     {
         id: 5,
         title: "Minecraft",
-        releaseYear: 2011,
-        averageRating: 9.5,
+        year: 2011,
+        rating: 9.5,
         numberOfReviews: 20000,
         description: "A sandbox game where you can build and explore infinite worlds.",
         img: "/images/Minecraft.jpg"
@@ -66,8 +66,8 @@ const VideoGames = [
     {
         id: 6,
         title: "Celeste",
-        releaseYear: 2018,
-        averageRating: 9.5,
+        year: 2018,
+        rating: 9.5,
         numberOfReviews: 800,
         description: "A heartfelt platformer about climbing a mountain while overcoming personal struggles.",
         img: "/images/Celeste.png"
@@ -75,8 +75,8 @@ const VideoGames = [
     {
         id: 7,
         title: "Hollow Knight",
-        releaseYear: 2017,
-        averageRating: 9.5,
+        year: 2017,
+        rating: 9.5,
         numberOfReviews: 7500,
         description: "A hand-drawn Metroidvania with deep exploration and tight combat.",
         img: "/images/HollowKnight.jpg"
@@ -84,8 +84,8 @@ const VideoGames = [
     {
         id: 8,
         title: "Katana ZERO",
-        releaseYear: 2019,
-        averageRating: 9.0,
+        year: 2019,
+        rating: 9.0,
         numberOfReviews: 600,
         description: "A stylish neo-noir action-platformer with fast-paced combat.",
         img: "/images/KatanaZero.jpg"
@@ -93,8 +93,8 @@ const VideoGames = [
     {
         id: 9,
         title: "Outer Wilds",
-        releaseYear: 2019,
-        averageRating: 9.3,
+        year: 2019,
+        rating: 9.3,
         numberOfReviews: 900,
         description: "A mystery exploration game set in a solar system trapped in a time loop.",
         img: "/images/OuterWilds.webp"
@@ -102,8 +102,8 @@ const VideoGames = [
     {
         id: 10,
         title: "Disco Elysium",
-        releaseYear: 2019,
-        averageRating: 9.6,
+        year: 2019,
+        rating: 9.6,
         numberOfReviews: 950,
         description: "A narrative-driven RPG where you play as a detective with unique skill-based dialogue.",
         img: "/images/DiscoElysium.jpg"

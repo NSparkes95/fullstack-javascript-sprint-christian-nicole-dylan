@@ -98,21 +98,21 @@ app.get('/upcoming', (req, res) => {
             title: "The Legend of Zelda: Tears of the Kingdom",
             releaseDate: "2025",
             description: "The next epic adventure in the world of Hyrule.",
-            img: "https://upload.wikimedia.org/wikipedia/en/0/02/The_Legend_of_Zelda_Tears_of_the_Kingdom.jpg"
+            img: "/images/LegendOfZeldaTOTK.jpg"
         },
         {
             id: 102,
             title: "Final Fantasy XVI",
             releaseDate: "2025",
             description: "A new tale of fantasy and destiny awaits.",
-            img: "https://upload.wikimedia.org/wikipedia/en/4/4b/Final_Fantasy_XVI_cover.jpg"
+            img: "/images/FinalFantasyXVI.jpg"
         },
         {
             id: 103,
             title: "Starfield",
             releaseDate: "2025",
             description: "Explore the cosmos in Bethesda's space-faring RPG.",
-            img: "https://upload.wikimedia.org/wikipedia/en/3/3e/Starfield_cover_art.jpg"
+            img: "/images/Starfield.jpg"
         }
     ];
 
