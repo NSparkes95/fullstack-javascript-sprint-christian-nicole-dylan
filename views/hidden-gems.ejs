@@ -18,22 +18,30 @@
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
     </div>
-n
-    <div class="hidden-gems">
-        <h1>Forgotten Treasures</h1>
-        <%- include('partials/header') %> 
-        <div class="hidden-gems-container">
+
+    <div class="screen-effect"></div> <!-- CRT Effect -->
+
+    <h1>Forgotten Treasures</h1>
+    <%- include('partials/header') %> 
+    <p class="neon-subtext">Rarely known, but highly rated.</p>
+
+    <div class="hidden-gems-container">
+        <% if (games.length === 0) { %>
+            <p class="neon-subtext">No hidden gems found.</p>
+        <% } else { %>
             <% games.forEach(game => { %>
-                <div class="game-box">
+                <div class="game-card">
                     <a href="/game-details/<%= game.id %>">
-                        <img src="<%= game.img %>" alt="<%= game.title %>" width="250">
-                        <h2><%= game.title %> (<%= game.year %>)</h2>
-                        <p>⭐ <%= game.rating %>/10</p>
-                        <p><%= game.description %></p>
+                        <img src="<%= game.img ? game.img : '/images/fallback.jpg' %>"
+                            onerror="this.onerror=null; this.src='/images/fallback.jpg';"
+                            alt="<%= game.title %>">
                     </a>
+                    <h2><%= game.title %> (<%= game.year %>)</h2>
+                    <p>⭐ <%= game.rating %>/10 | 🗳️ <%= game.reviews %> reviews</p>
+                    <p><%= game.description %></p>
                 </div>
-            <% }); %>
-        </div>
+            <% }) %>
+        <% }; %>
     </div>
 
     <!-- ✅ Footer Included at the bottom -->

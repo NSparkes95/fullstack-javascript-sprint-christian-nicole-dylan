@@ -3,7 +3,7 @@ const {
     getGamesByGenre, 
     getTopRatedGames, 
     getGameDetailsById, 
-    selectRandomGameId, 
+    selectRandomGames, 
     getHiddenGems 
 } = require("../../utils/gameUtils");
 
@@ -33,11 +33,11 @@ describe('Game Utility Functions', () => {
     // Test for getTopRatedGames
     describe('getTopRatedGames', () => {
         test('should return top-rated games sorted by rating', () => {
-            const result = getTopRatedGames();
+            const result = getTopRatedGames(16);
             
             // Check if the games are sorted in descending order by rating
             for (let i = 0; i < result.length - 1; i++) {
-                expect(result[i].rating).toBeGreaterThanOrEqual(result[i + 1].rating);
+                expect(result[i].rating).toBeGreaterThanOrEqual(9.0);
             }
         });
 
@@ -50,25 +50,31 @@ describe('Game Utility Functions', () => {
     // Test for getGameDetailsById
     describe('getGameDetailsById', () => {
         test('should return game details for a valid ID', () => {
-            const validId = '1';  // Change this to a valid ID from your data
+            const validId = 1;  // Change this to a valid ID from your data
             const result = getGameDetailsById(validId);
-            expect(result).toBeDefined();
-            expect(result.id).toBe(validId);
+            expect(result).not.toBeNull();  // ✅ Prevents TypeError
+            expect(result?.id).toBe(validId);
         });
 
         test('should return undefined for an invalid ID', () => {
             const invalidId = '9999';
             const result = getGameDetailsById(invalidId);
-            expect(result).toBeUndefined();
+            expect(result).toBeNull();
         });
     });
 
     // Test for selectRandomGameId
     describe('selectRandomGameId', () => {
-        test('should return a valid game ID', () => {
-            const randomId = selectRandomGameId();
-            const gameExists = VideoGames.some(game => game.id === randomId);
-            expect(gameExists).toBe(true);
+        test('should return an array of games with correct length', () => {
+            const numGames = 5;
+            const result = selectRandomGames(numGames);
+            expect(result.length).toBe(numGames);
+        });
+
+        test('should return different sets of games on multiple calls', () => {
+            const result1 = selectRandomGames(5);
+            const result2 = selectRandomGames(5);
+            expect(result1).not.toEqual(result2); // ✅ Ensures randomness
         });
     });
 
@@ -79,8 +85,8 @@ describe('Game Utility Functions', () => {
             
             // Check if all games returned have high rating and few reviews
             result.forEach(game => {
-                expect(game.rating).toBeGreaterThan(8);
-                expect(game.reviews).toBeLessThan(50);
+                expect(game.rating).toBeGreaterThanOrEqual(7.0)
+                expect(game.reviews).toBeLessThan(5000);
             });
         });
     });

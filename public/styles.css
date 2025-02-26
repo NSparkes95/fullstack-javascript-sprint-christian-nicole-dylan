@@ -11,7 +11,7 @@
         background-color: black;
         height: 100%;
         padding: 0px;
-        margin: 0px;
+        margin-top: 20px;
         font-family: 'Lato', sans-serif;
         display: flex;
         color: #00ffcc;
@@ -120,7 +120,7 @@
     }
     
     /* 🔹 TOP-RATED & HIDDEN GEMS GRID */
-    .top-rated-container, .hidden-gems-container {
+    .top-rated-container, .random-games-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Two equal columns */
         gap: 20px;
@@ -326,3 +326,97 @@
 .particle:nth-child(3) { top: 80%; left: 50%; animation-delay: 1.5s; }
 .particle:nth-child(4) { top: 40%; left: 20%; animation-delay: 2s; }
 .particle:nth-child(5) { top: 10%; left: 80%; animation-delay: 2.5s; }
+
+/* 🔹 HIDDEN GEMS PAGE - RETRO THEME MATCHING EXISTING STYLE */
+
+.hidden-gems-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    text-align: center;
+}
+
+/* 🔥 Glowing Header */
+.neon-title {
+    font-size: 3rem;
+    color: #00ffcc;
+    text-shadow: 0px 0px 10px #00ffcc, 0px 0px 20px #00ffcc, 0px 0px 30px #008080;
+    margin-top: 30px;
+}
+
+/* 🔹 Glitch Effect for Subtitle */
+.neon-subtext {
+    font-size: 1.2rem;
+    color: #ffffff;
+    opacity: 0.8;
+    text-shadow: 0px 0px 5px #00ffcc;
+    animation: glitchText 1.5s infinite alternate;
+}
+
+@keyframes glitchText {
+    0% { text-shadow: 0px 0px 5px #00ffcc; }
+    100% { text-shadow: 0px 0px 15px #00ffcc; }
+}
+
+/* 🔹 Game Card Styling */
+.game-card {
+    background: rgba(17, 17, 17, 0.9);
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0px 0px 15px #00ffcc;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px #00ffcc;
+}
+
+/* 🔹 Game Image */
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #00ffcc;
+}
+
+/* 🔹 Game Title */
+.game-card h2 {
+    font-size: 1.2rem;
+    color: #ff00ff; /* Retro neon pink */
+    text-shadow: 0px 0px 5px #ff00ff, 0px 0px 10px #ff00ff;
+}
+
+/* 🔹 Game Details */
+.game-card p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* 🔹 Scanline CRT Effect (Retro TV Look) */
+.screen-effect::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        rgba(0, 255, 204, 0.05) 0px,
+        rgba(0, 255, 204, 0.05) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    animation: scanlines 1s linear infinite;
+}
+
+@keyframes scanlines {
+    0% { opacity: 0.2; }
+    100% { opacity: 0.1; }
+}

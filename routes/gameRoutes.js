@@ -19,6 +19,11 @@ router.get('/:id', validateGameId, gameController.getGameDetails);
 router.get('/random', gameController.getRandomGame);
 
 // Route to get hidden gems
-router.get('/hidden-gems', gameController.getHiddenGems);
+router.get('/hidden-gems', (req, res) => {
+    const hiddenGames = getHiddenGems();
+    console.log("🛠️ Serving Hidden Gems Page with:", hiddenGames.length, "games.");
+    
+    res.render('hidden-gems', { games: hiddenGames });
+});
 
 module.exports = router;

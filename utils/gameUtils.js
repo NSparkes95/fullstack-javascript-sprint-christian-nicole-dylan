@@ -4,6 +4,11 @@
 const { VideoGames } = require("./data");
 
 /**
+ * Debugging - Ensure VideoGames is imported
+ */
+console.log("🎮 VideoGames Imported:", Array.isArray(VideoGames) ? VideoGames.length + " games loaded." : "Error: VideoGames not loaded!");
+
+/**
  * Get `x` games by genre
  * @param {string} genre - The genre of the games
  * @param {number} x - The number of games to retrieve
@@ -73,32 +78,34 @@ function shuffleArray(array) {
 function getHiddenGems() {
     console.log("🔍 Checking Hidden Gems...");
 
-    // ✅ Check if VideoGames is an array and is defined
-    if (!VideoGames || !Array.isArray(VideoGames)) {
-        console.error("❌ Error: VideoGames is not an array or is undefined!");
+    // Ensure VideoGames is defined and is an array
+    if (!Array.isArray(VideoGames) || VideoGames.length === 0) {
+        console.error("❌ Error: VideoGames is empty or not an array!");
         return [];
-    }
+    }    
 
-    // ✅ Shuffle the games array to get a random selection
+    // Shuffle the games array to get a random selection
     const shuffledGames = shuffleArray([...VideoGames]);
-    console.log("🎲 Shuffled Games:", shuffledGames); // 🎲 Log shuffled games to check output
+    console.log("🎲 Shuffled Games:", shuffledGames);
 
-    // ✅ Filter and map hidden gems
+    // Filter and map hidden gems
     const hiddenGems = shuffledGames
-        .filter(game => game.averageRating >= 9.0 && game.numberOfReviews < 1000) 
+        .filter(game => game.averageRating >= 7.0 && game.numberOfReviews < 5000) // Loosened conditions
         .map(game => ({
-            id: game.id || Math.random(),  // 🆔 Generate a random ID if missing
-            title: game.title,
-            year: game.releaseYear,
-            rating: game.averageRating, 
-            reviews: game.numberOfReviews,
-            description: game.description, 
-            img: game.img
-        }));
-    console.log("📜 Hidden Gems Found:", hiddenGems.length > 0 ? hiddenGems : "None found! Check filter conditions."); // ✅ Log results to check output
+            id: game.id || Math.random().toString(36).substr(2, 9), // Unique ID if missing
+            title: game.title || "Unknown Title",
+            year: game.year || "Unknown Year",
+            rating: game.rating || "N/A",
+            reviews: game.numberOfReviews || 0,
+            description: game.description || "No description available.",
+            img: game.img ? game.img : '/images/fallback.jpg' // Ensure fallback image
+        }));        
+
+    console.log("📜 Hidden Gems Found:", hiddenGems.length > 0 ? hiddenGems.length : "None found! 😢");
 
     return hiddenGems;
 }
+
 
 // ✅ Export all functions
 module.exports = {
@@ -106,5 +113,5 @@ module.exports = {
     getTopRatedGames,
     getGameDetailsById,
     selectRandomGames,   // ✅ Exported to fix the missing function error
-    getHiddenGems,
+    getHiddenGems
 };
