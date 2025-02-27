@@ -124,7 +124,53 @@ const VideoGames = [
         developer: "ZA/UM",
         genre: Genres.RPG,
         img: "/images/DiscoElysium.jpg"
+    },
+    {
+        id: 11,
+        title: "God of War",
+        year: 2018,
+        rating: 9.8,
+        numberOfReviews: 12000,
+        description: "A father-son journey set in Norse mythology with intense combat and emotional storytelling.",
+        img: "/images/GodOfWar.jpg"
+    },
+    {
+        id: 12,
+        title: "Red Dead Redemption 2",
+        year: 2018,
+        rating: 9.7,
+        numberOfReviews: 14000,
+        description: "An epic Western adventure with stunning open-world exploration and a gripping narrative.",
+        img: "/images/RedDeadRedemption2.jpg"
+    },
+    {
+        id: 13,
+        title: "Persona 5 Royal",
+        year: 2020,
+        rating: 9.6,
+        numberOfReviews: 8500,
+        description: "A stylish JRPG with a deep story, complex characters, and a unique turn-based battle system.",
+        img: "/images/Persona5Royal.jpg"
+    },
+    {
+        id: 14,
+        title: "The Last of Us Part II",
+        year: 2020,
+        rating: 9.5,
+        numberOfReviews: 11000,
+        description: "A narrative-driven survival game that explores themes of revenge, loss, and hope.",
+        img: "/images/TheLastOfUsPart2.jpg"
+    },
+    {
+        id: 15,
+        title: "Hades",
+        year: 2020,
+        rating: 9.4,
+        numberOfReviews: 7000,
+        description: "A roguelike dungeon crawler with fast-paced combat, an engaging story, and beautiful artwork.",
+        img: "/images/Hades.jpg"
     }
+    
 ];
 
 module.exports = { VideoGames, Genres };
