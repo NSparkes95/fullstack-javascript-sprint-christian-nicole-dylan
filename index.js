@@ -14,7 +14,7 @@ const {
     getGamesByGenre, 
     getTopRatedGames, 
     getGameDetailsById, 
-    selectRandomGames,  // ✅ Corrected Function Name
+    selectRandomGames,  
     getHiddenGems 
 } = require("./utils/gameUtils");
 
@@ -40,7 +40,7 @@ app.get('/home', (req, res) => {
 
 // ✅ Top Rated Route
 app.get('/top-rated', (req, res) => {
-    const topRatedGames = getTopRatedGames(16); // Get top 16 games
+    const topRatedGames = getTopRatedGames(15); // Get top 15 games
     res.render('top-rated', { games: topRatedGames });
 });
 

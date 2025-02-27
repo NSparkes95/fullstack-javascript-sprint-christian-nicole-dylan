@@ -1,5 +1,3 @@
-// utils/gameUtils.js
-
 // ✅ Import VideoGames from data.js
 const { VideoGames } = require("./data");
 
@@ -30,8 +28,8 @@ function getGamesByGenre(genre, x) {
  */
 function getTopRatedGames(x) {
     // ✅ Sort games by rating in descending order and get top `x`
-    return VideoGames
-        .sort((a, b) => b.averageRating - a.averageRating)
+    return [...VideoGames]  // Make a copy before sorting
+        .sort((a, b) => b.rating - a.rating)
         .slice(0, x);
 }
 
@@ -84,27 +82,24 @@ function getHiddenGems() {
         return [];
     }    
 
-    // Shuffle the games array to get a random selection
-    const shuffledGames = shuffleArray([...VideoGames]);
-    console.log("🎲 Shuffled Games:", shuffledGames);
-
-    // Filter and map hidden gems
-    const hiddenGems = shuffledGames
-        .filter(game => game.averageRating >= 7.0 && game.numberOfReviews < 5000) // Loosened conditions
-        .map(game => ({
-            id: game.id || Math.random().toString(36).substr(2, 9), // Unique ID if missing
-            title: game.title || "Unknown Title",
-            year: game.year || "Unknown Year",
-            rating: game.rating || "N/A",
-            reviews: game.numberOfReviews || 0,
-            description: game.description || "No description available.",
-            img: game.img ? game.img : '/images/fallback.jpg' // Ensure fallback image
-        }));        
+    // Filter for Hidden Gems
+    const hiddenGems = VideoGames
+        .filter(game => 
+            game.rating >= 9.0 && 
+            game.numberOfReviews < 1000
+        );
 
     console.log("📜 Hidden Gems Found:", hiddenGems.length > 0 ? hiddenGems.length : "None found! 😢");
 
     return hiddenGems;
 }
+
+/**
+ * Debugging - Check all functions
+ */
+console.log("🎲 Random Games:", selectRandomGames(3));
+console.log("🔥 Top Rated Games:", getTopRatedGames(3));
+console.log("💎 Hidden Gems:", getHiddenGems());
 
 
 // ✅ Export all functions
@@ -112,6 +107,6 @@ module.exports = {
     getGamesByGenre,
     getTopRatedGames,
     getGameDetailsById,
-    selectRandomGames,   // ✅ Exported to fix the missing function error
+    selectRandomGames,   
     getHiddenGems
 };
