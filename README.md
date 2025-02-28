@@ -83,6 +83,11 @@ The following images are used in this project:
 - **The Legend of Zelda: Tears of the Kingdom** - Image by [Nintendo](https://www.nintendo.com)
 - **Final Fantasy XVI** - Image by [Square Enix](https://www.square-enix.com)
 - **Starfield** - Image by [Bethesda](https://www.bethesda.net)
+- **God Of War** - Image by [Santa Monica Studio](https://sms.playstation.com/)
+- **Red Dead Redemption 2** - Image by [Rockstar Games](https://www.rockstargames.com/)
+- **Persona 5 Royal** - Image by [Atlus](https://atlus.com/)
+- **The Last Of Us Part II** Image by [Naughty Dog](https://www.naughtydog.com/)
+- **Hades** Image by [Supergiant Games](https://www.supergiantgames.com/)
 
 **Author(s)**
 
