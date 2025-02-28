@@ -55,15 +55,15 @@ const upcomingGames = [
     },
     {
         id: 207,
-        title: "Elden Ring: Shadow of the Erdtree",
+        title: "Monster Hunter Wilds",
         releaseDate: 2025,
         rating: "TBA",
         numberOfReviews: 0,
-        description: "An epic expansion to the Elden Ring universe, with new lands to explore, challenging bosses, and rich lore.",
-        developer: "FromSoftware",
+        description: "Embark on an epic journey in an untamed world, hunting colossal creatures and crafting powerful gear.",
+        developer: "Capcom",
         genre: Genres.ACTION,
-        img: "/images/EldenRingShadow.jpg"
-    },
+        img: "/images/MonsterHunterWilds.jpg"
+    },    
     {
         id: 208,
         title: "Hollow Knight: Silksong",

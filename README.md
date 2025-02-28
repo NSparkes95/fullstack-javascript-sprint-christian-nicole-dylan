@@ -88,6 +88,8 @@ The following images are used in this project:
 - **Persona 5 Royal** - Image by [Atlus](https://atlus.com/)
 - **The Last Of Us Part II** Image by [Naughty Dog](https://www.naughtydog.com/)
 - **Hades** Image by [Supergiant Games](https://www.supergiantgames.com/)
+- **Monster Hunter Wilds** - Image by [Capcom](https://www.capcom.com)
+- **Hollow Knight: Silksong** - Image by [Team Cherry](https://www.teamcherry.com.au)
 
 **Author(s)**
 
