@@ -18,6 +18,65 @@ const {
     getHiddenGems 
 } = require("./utils/gameUtils");
 
+// ─── Upcoming Games Data ─────────────────────────────────────────────────────────
+const upcomingGames = [
+    {
+        id: 204,
+        title: "The Legend of Zelda: Tears of the Kingdom",
+        releaseDate: 2025,
+        rating: "TBA",
+        numberOfReviews: 0,
+        description: "The next epic adventure in the world of Hyrule, featuring new abilities, expansive exploration, and an epic narrative.",
+        developer: "Nintendo",
+        genre: Genres.ADVENTURE,
+        img: "/images/LegendOfZeldaTOTK.jpg"
+    },
+    {
+        id: 205,
+        title: "Final Fantasy XVI",
+        releaseDate: 2025,
+        rating: "TBA",
+        numberOfReviews: 0,
+        description: "An epic fantasy tale of destiny and power, set in a world of magic, crystals, and intense battles.",
+        developer: "Square Enix",
+        genre: Genres.RPG,
+        img: "/images/FinalFantasyXVI.jpg"
+    },
+    {
+        id: 206,
+        title: "Starfield",
+        releaseDate: 2025,
+        rating: "TBA",
+        numberOfReviews: 0,
+        description: "Explore the vast cosmos in Bethesda's space-faring RPG, featuring exploration, adventure, and deep storytelling.",
+        developer: "Bethesda Game Studios",
+        genre: Genres.RPG,
+        img: "/images/Starfield.jpg"
+    },
+    {
+        id: 207,
+        title: "Elden Ring: Shadow of the Erdtree",
+        releaseDate: 2025,
+        rating: "TBA",
+        numberOfReviews: 0,
+        description: "An epic expansion to the Elden Ring universe, with new lands to explore, challenging bosses, and rich lore.",
+        developer: "FromSoftware",
+        genre: Genres.ACTION,
+        img: "/images/EldenRingShadow.jpg"
+    },
+    {
+        id: 208,
+        title: "Hollow Knight: Silksong",
+        releaseDate: 2025,
+        rating: "TBA",
+        numberOfReviews: 0,
+        description: "The highly anticipated sequel to Hollow Knight, featuring new abilities, vast environments, and intense combat.",
+        developer: "Team Cherry",
+        genre: Genres.ACTION,
+        img: "/images/HollowKnightSilksong.jpg"
+    }
+];
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -73,89 +132,21 @@ app.get('/random-game', (req, res) => {
     res.render('random-game', { game: randomGame });
 });
 
-// ✅ Search Route - Unified and Fixed
-app.get('/search', (req, res) => {
-    const query = req.query.query ? req.query.query.toLowerCase() : ''; // Get search query
-    let searchResults = [];
-
-    if (query) {
-        searchResults = VideoGames.filter(game => 
-            game.title.toLowerCase().includes(query) ||  // Match title
-            game.description.toLowerCase().includes(query) // Match description
-        );
-    }
-
-    res.render('search-results', { games: searchResults, query });
-});
-
-// ✅ Genre Filtering Route
-app.get('/genre/:genre', (req, res) => {
-    const genre = req.params.genre;
-    const gamesByGenre = getGamesByGenre(genre, 9); // Get 9 games by genre
-    res.render('genre', { games: gamesByGenre, genre });
-});
-
 // ✅ Upcoming Games Route
 app.get('/upcoming', (req, res) => {
-    const upcomingGames = [
-        {
-            id: 204,
-            title: "The Legend of Zelda: Tears of the Kingdom",
-            releaseDate: 2025,
-            rating: "TBA",
-            numberOfReviews: 0,
-            description: "The next epic adventure in the world of Hyrule, featuring new abilities, expansive exploration, and an epic narrative.",
-            developer: "Nintendo",
-            genre: Genres.ADVENTURE,
-            img: "/images/LegendOfZeldaTOTK.jpg"
-        },
-        {
-            id: 205,
-            title: "Final Fantasy XVI",
-            releaseDate: 2025,
-            rating: "TBA",
-            numberOfReviews: 0,
-            description: "An epic fantasy tale of destiny and power, set in a world of magic, crystals, and intense battles.",
-            developer: "Square Enix",
-            genre: Genres.RPG,
-            img: "/images/FinalFantasyXVI.jpg"
-        },
-        {
-            id: 206,
-            title: "Starfield",
-            releaseDate: 2025,
-            rating: "TBA",
-            numberOfReviews: 0,
-            description: "Explore the vast cosmos in Bethesda's space-faring RPG, featuring exploration, adventure, and deep storytelling.",
-            developer: "Bethesda Game Studios",
-            genre: Genres.RPG,
-            img: "/images/Starfield.jpg"
-        },
-        {
-            id: 207,
-            title: "Elden Ring: Shadow of the Erdtree",
-            releaseDate: 2025,
-            rating: "TBA",
-            numberOfReviews: 0,
-            description: "An epic expansion to the Elden Ring universe, with new lands to explore, challenging bosses, and rich lore.",
-            developer: "FromSoftware",
-            genre: Genres.ACTION,
-            img: "/images/EldenRingShadow.jpg"
-        },
-        {
-            id: 208,
-            title: "Hollow Knight: Silksong",
-            releaseDate: 2025,
-            rating: "TBA",
-            numberOfReviews: 0,
-            description: "The highly anticipated sequel to Hollow Knight, featuring new abilities, vast environments, and intense combat.",
-            developer: "Team Cherry",
-            genre: Genres.ACTION,
-            img: "/images/HollowKnightSilksong.jpg"
-        }
-    ];
-
     res.render('upcoming', { upcomingGames });
+});
+
+// ✅ Upcoming Game Details Route
+app.get('/upcoming-game-details/:id', (req, res) => {
+    const gameId = parseInt(req.params.id);
+    const upcomingGame = upcomingGames.find(g => g.id === gameId);
+
+    if (!upcomingGame) {
+        return res.status(404).send('Upcoming game not found');
+    }
+
+    res.render('upcoming-game-details', { game: upcomingGame });
 });
 
 // ✅ Use the modular routes for all game-related endpoints

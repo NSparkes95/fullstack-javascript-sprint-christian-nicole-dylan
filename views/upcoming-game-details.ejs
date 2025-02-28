@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= game.title %> - Upcoming Game Details</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <!-- Floating Particles for Sci-Fi Effect -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="xp-bar">
+        <div class="xp-bar-fill"></div>
+    </div>
+
+    <h1>Gamepedia - Upcoming Games</h1>
+    <%- include('partials/header') %> 
+
+    <div class="game-details-container">
+        <h1><%= game.title %> (<%= game.releaseDate %>)</h1>
+        <img src="<%= game.img %>" 
+             onerror="this.onerror=null; this.src='/images/fallback.jpg';" 
+             alt="<%= game.title %>" 
+             width="300">
+        <p><strong>⭐ Rating:</strong> <%= game.rating %></p>
+        <p><strong>Description:</strong> <%= game.description %></p>
+        <p><strong>Developer:</strong> <%= game.developer %></p>
+        <p><strong>Genre:</strong> <%= game.genre %></p>
+        <a href="/upcoming" class="back-button">← Back to Upcoming Games</a>
+    </div>
+
+    <!-- Include Footer -->
+    <%- include('partials/footer') %> 
+
+</body>
+</html>

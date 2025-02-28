@@ -25,7 +25,8 @@
         <% if (upcomingGames && upcomingGames.length > 0) { %>
             <% upcomingGames.forEach(game => { %>
                 <div class="game-box">
-                    <a href="/game-details/<%= game.id %>">
+                    <!-- ✅ Link Updated to Upcoming Game Details Page -->
+                    <a href="/upcoming-game-details/<%= game.id %>">
                         <img src="<%= game.img %>" alt="<%= game.title %>" width="250">
                         <h2><%= game.title %> (<%= game.releaseDate %>)</h2>
                         <p><%= game.description %></p>
