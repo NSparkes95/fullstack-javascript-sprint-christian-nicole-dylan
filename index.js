@@ -53,7 +53,12 @@ app.get('/game-details/:id', (req, res) => {
         return res.status(404).send('Game not found');
     }
 
-    res.render('game-details', { game });
+    // ✅ Get Genre-based Recommendations (excluding current game)
+    const recommendations = VideoGames
+        .filter(g => g.genre === game.genre && g.id !== game.id)
+        .slice(0, 3);  // ✅ Limit to 3 recommendations
+
+    res.render('game-details', { game, recommendations });
 });
 
 // ✅ Hidden Gems Route

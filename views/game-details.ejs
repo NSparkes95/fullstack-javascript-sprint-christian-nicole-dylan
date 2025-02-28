@@ -8,12 +8,12 @@
 </head>
 <body>
 
-      <!-- Floating Particles for Sci-Fi Effect -->
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
+    <!-- Floating Particles for Sci-Fi Effect -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
   
     <div class="xp-bar">
         <div class="xp-bar-fill"></div>
@@ -21,6 +21,7 @@
 
     <h1>Gamepedia</h1>
     <%- include('partials/header') %> 
+
     <div class="game-details-container">
         <h1><%= game.title %> (<%= game.year %>)</h1>
         <img src="<%= game.img %>" 
@@ -29,6 +30,28 @@
              width="300">
         <p><strong>⭐ Rating:</strong> <%= game.rating %>/10</p>
         <p><strong>Description:</strong> <%= game.description %></p>
+
+        <!-- ✅ Genre-based Recommendations Section -->
+        <% if (recommendations && recommendations.length > 0) { %>
+            <div class="recommendations-container">
+                <h2>You May Also Like...</h2>
+                <div class="recommendations-grid">
+                    <% recommendations.forEach(recommendation => { %>
+                        <div class="recommendation-card">
+                            <a href="/game-details/<%= recommendation.id %>">
+                                <img src="<%= recommendation.img %>" 
+                                     onerror="this.onerror=null; this.src='/images/fallback.jpg';" 
+                                     alt="<%= recommendation.title %>" 
+                                     width="150">
+                                <h3><%= recommendation.title %> (<%= recommendation.year %>)</h3>
+                                <p>⭐ <%= recommendation.rating %>/10</p>
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        <% } %>
+
         <a href="/top-rated" class="back-button">← Back to Top Rated</a>
     </div>
 

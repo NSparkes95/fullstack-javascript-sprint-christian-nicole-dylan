@@ -132,6 +132,7 @@ const VideoGames = [
         rating: 9.8,
         numberOfReviews: 12000,
         description: "A father-son journey set in Norse mythology with intense combat and emotional storytelling.",
+        genre: Genres.ACTION,
         img: "/images/GodOfWar.jpg"
     },
     {
@@ -141,6 +142,7 @@ const VideoGames = [
         rating: 9.7,
         numberOfReviews: 14000,
         description: "An epic Western adventure with stunning open-world exploration and a gripping narrative.",
+        genre: Genres.ADVENTURE,
         img: "/images/RedDeadRedemption2.jpg"
     },
     {
@@ -150,6 +152,7 @@ const VideoGames = [
         rating: 9.6,
         numberOfReviews: 8500,
         description: "A stylish JRPG with a deep story, complex characters, and a unique turn-based battle system.",
+        genre: Genres.RPG,
         img: "/images/Persona5Royal.jpg"
     },
     {
@@ -159,6 +162,7 @@ const VideoGames = [
         rating: 9.5,
         numberOfReviews: 11000,
         description: "A narrative-driven survival game that explores themes of revenge, loss, and hope.",
+        genre: Genres.ACTION,
         img: "/images/TheLastOfUsPart2.jpg"
     },
     {
@@ -168,6 +172,7 @@ const VideoGames = [
         rating: 9.4,
         numberOfReviews: 7000,
         description: "A roguelike dungeon crawler with fast-paced combat, an engaging story, and beautiful artwork.",
+        genre: Genres.ACTION,
         img: "/images/Hades.jpg"
     }
     
