@@ -99,25 +99,59 @@ app.get('/genre/:genre', (req, res) => {
 app.get('/upcoming', (req, res) => {
     const upcomingGames = [
         {
-            id: 101,
+            id: 204,
             title: "The Legend of Zelda: Tears of the Kingdom",
-            releaseDate: "2025",
-            description: "The next epic adventure in the world of Hyrule.",
+            releaseDate: 2025,
+            rating: "TBA",
+            numberOfReviews: 0,
+            description: "The next epic adventure in the world of Hyrule, featuring new abilities, expansive exploration, and an epic narrative.",
+            developer: "Nintendo",
+            genre: Genres.ADVENTURE,
             img: "/images/LegendOfZeldaTOTK.jpg"
         },
         {
-            id: 102,
+            id: 205,
             title: "Final Fantasy XVI",
-            releaseDate: "2025",
-            description: "A new tale of fantasy and destiny awaits.",
+            releaseDate: 2025,
+            rating: "TBA",
+            numberOfReviews: 0,
+            description: "An epic fantasy tale of destiny and power, set in a world of magic, crystals, and intense battles.",
+            developer: "Square Enix",
+            genre: Genres.RPG,
             img: "/images/FinalFantasyXVI.jpg"
         },
         {
-            id: 103,
+            id: 206,
             title: "Starfield",
-            releaseDate: "2025",
-            description: "Explore the cosmos in Bethesda's space-faring RPG.",
+            releaseDate: 2025,
+            rating: "TBA",
+            numberOfReviews: 0,
+            description: "Explore the vast cosmos in Bethesda's space-faring RPG, featuring exploration, adventure, and deep storytelling.",
+            developer: "Bethesda Game Studios",
+            genre: Genres.RPG,
             img: "/images/Starfield.jpg"
+        },
+        {
+            id: 207,
+            title: "Elden Ring: Shadow of the Erdtree",
+            releaseDate: 2025,
+            rating: "TBA",
+            numberOfReviews: 0,
+            description: "An epic expansion to the Elden Ring universe, with new lands to explore, challenging bosses, and rich lore.",
+            developer: "FromSoftware",
+            genre: Genres.ACTION,
+            img: "/images/EldenRingShadow.jpg"
+        },
+        {
+            id: 208,
+            title: "Hollow Knight: Silksong",
+            releaseDate: 2025,
+            rating: "TBA",
+            numberOfReviews: 0,
+            description: "The highly anticipated sequel to Hollow Knight, featuring new abilities, vast environments, and intense combat.",
+            developer: "Team Cherry",
+            genre: Genres.ACTION,
+            img: "/images/HollowKnightSilksong.jpg"
         }
     ];
 
